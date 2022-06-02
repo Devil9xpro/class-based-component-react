@@ -16,6 +16,10 @@ class Users extends Component {
         }
     }
 
+    componentWillUnmount() {
+        console.log('Component will Unmount')
+    }
+
     toggleUsersHandler() {
         this.setState((curState) => {
             return {
@@ -27,7 +31,7 @@ class Users extends Component {
     render() {
         const userList = (
             <ul>
-                {DUMMY_USERS.map((user) => (
+                {this.props.users.map((user) => (
                     <User key={user.id} name={user.name}/>
                 ))}
             </ul>
